@@ -5,8 +5,9 @@
 
 default['ambari']['server_fqdn'] = "localhost"
 
-# Set default version to Ambari 2.0
-default['ambari']['version'] = "2.0"
+# Set default version to Ambari 2.1.1
+# Note that not all operating systems are supported - Red Hat 5 and Ubuntu are missing.
+default['ambari']['version'] = "2.1.1"
 
 case node['ambari']['version']
 when "1.7"
@@ -19,6 +20,10 @@ when "2.0", "2"
   default['ambari']['rhel_6_repo'] = "http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.0.1/ambari.repo"
   default['ambari']['suse_11_repo'] = "http://public-repo-1.hortonworks.com/ambari/suse11/2.x/updates/2.0.1/ambari.repo"
   default['ambari']['ubuntu_12_repo'] = "http://public-repo-1.hortonworks.com/ambari/ubuntu12/2.x/updates/2.0.1"
+when "2.1.1"
+  default['ambari']['rhel_6_repo'] = "http://public-repo-1.hortonworks.com/ambari/centos6/2.x/updates/2.1.1/ambari.repo"
+  default['ambari']['rhel_7_repo'] = "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.1.1/ambari.repo"
+  default['ambari']['suse_11_repo'] = "http://public-repo-1.hortonworks.com/ambari/suse11/2.x/updates/2.1.1/ambari.repo"
 end
 
 default['ambari']['admin_user'] = "admin"
