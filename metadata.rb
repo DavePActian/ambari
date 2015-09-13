@@ -11,4 +11,4 @@ supports 'amazon', ">= 5.0"
 supports 'scientific', ">= 5.0"
 supports 'suse', ">= 11.0"
 supports 'ubuntu', ">= 12.0"
-depends 'apt'
+#depends 'apt'

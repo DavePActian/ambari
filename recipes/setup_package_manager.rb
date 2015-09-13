@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include_recipe "apt"
+# include_recipe "apt"
 
 %w'wget'.each do | pack |
   package pack do
@@ -48,12 +48,12 @@ when "suse"
     source node['ambari']['suse_11_repo']
     not_if { ::File.exists?("/etc/zypp/repos.d/ambari.repo") }
   end
-when "ubuntu"
-  apt_repository 'Ambari' do
-    uri node['ambari']['ubuntu_12_repo']
-    distribution 'Ambari'
-    components ['main']
-    keyserver    'hkp://keyserver.ubuntu.com:80'
-    key          'B9733A7A07513CAD'
-  end
+# when "ubuntu"
+#   apt_repository 'Ambari' do
+#     uri node['ambari']['ubuntu_12_repo']
+#     distribution 'Ambari'
+#     components ['main']
+#     keyserver    'hkp://keyserver.ubuntu.com:80'
+#     key          'B9733A7A07513CAD'
+#   end
 end
